@@ -1,0 +1,6 @@
+Hosting:
+https://www.aspify.com/en/webhosting/
+
+Doubts:
+How to feed data into the website?
+Where images will be stored?
