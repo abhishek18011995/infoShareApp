@@ -1,4 +1,5 @@
 For future:
+Add Rosyln analyzers in nuget
 Rating for products
 multiple image support
 raising query about the product from the products page itself
