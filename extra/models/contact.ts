@@ -10,7 +10,7 @@ interface IAddress {
     city: string;
     country: string;
     state: string;
-    postalCode: string;
+    postalCode: number;
 }
 
 interface IContactUs{

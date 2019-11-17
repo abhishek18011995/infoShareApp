@@ -2,16 +2,20 @@ interface IProduct {
     id: string;
     name: string;
     price: IPrice;
-    details: string;
     imgPath: string;
     type: string; 
     inStock: boolean;
-    brandName: string;   
-    gender: Gender;   
+    brandName: string; 
+    productInfo: IProductInfo;  
 }
 
-interface IProductList {
-    products: IProduct[]    
+// interface IProductList {
+//     products: IProduct[]    
+// }
+
+interface IProductInfo {
+    productDetails: string;
+    gender: Gender;   
 }
 
 interface IPrice {
