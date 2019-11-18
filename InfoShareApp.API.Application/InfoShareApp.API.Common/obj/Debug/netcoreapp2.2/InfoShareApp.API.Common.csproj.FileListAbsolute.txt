@@ -1,7 +1,0 @@
-D:\Abhi\study\projects\infoShareApp\InfoShareApp.API.Application\InfoShareApp.API.Common\bin\Debug\netcoreapp2.2\InfoShareApp.API.Common.deps.json
-D:\Abhi\study\projects\infoShareApp\InfoShareApp.API.Application\InfoShareApp.API.Common\bin\Debug\netcoreapp2.2\InfoShareApp.API.Common.dll
-D:\Abhi\study\projects\infoShareApp\InfoShareApp.API.Application\InfoShareApp.API.Common\bin\Debug\netcoreapp2.2\InfoShareApp.API.Common.pdb
-D:\Abhi\study\projects\infoShareApp\InfoShareApp.API.Application\InfoShareApp.API.Common\obj\Debug\netcoreapp2.2\InfoShareApp.API.Common.AssemblyInfoInputs.cache
-D:\Abhi\study\projects\infoShareApp\InfoShareApp.API.Application\InfoShareApp.API.Common\obj\Debug\netcoreapp2.2\InfoShareApp.API.Common.AssemblyInfo.cs
-D:\Abhi\study\projects\infoShareApp\InfoShareApp.API.Application\InfoShareApp.API.Common\obj\Debug\netcoreapp2.2\InfoShareApp.API.Common.dll
-D:\Abhi\study\projects\infoShareApp\InfoShareApp.API.Application\InfoShareApp.API.Common\obj\Debug\netcoreapp2.2\InfoShareApp.API.Common.pdb
