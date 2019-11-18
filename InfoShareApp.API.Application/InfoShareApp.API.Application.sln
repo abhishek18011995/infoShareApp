@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29326.143
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfoShareApp.API.Application", "InfoShareApp.API.Application\InfoShareApp.API.Application.csproj", "{93B485B0-78ED-41F2-8DB5-5BD538274BA6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfoShareApp.API.Common", "InfoShareApp.API.Common\InfoShareApp.API.Common.csproj", "{BDD53CC1-3AE6-4C78-9D5C-906D7644399B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfoShareApp.API.Data", "InfoShareApp.API.Common\InfoShareApp.API.Data.csproj", "{BDD53CC1-3AE6-4C78-9D5C-906D7644399B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

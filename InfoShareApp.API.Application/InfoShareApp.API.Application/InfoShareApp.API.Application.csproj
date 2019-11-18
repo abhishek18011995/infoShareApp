@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InfoShareApp.API.Common\InfoShareApp.API.Common.csproj" />
+    <ProjectReference Include="..\InfoShareApp.API.Common\InfoShareApp.API.Data.csproj" />
   </ItemGroup>
 
 </Project>

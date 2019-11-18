@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using InfoShareApp.API.Application.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using InfoShareApp.API.Common.Services.Logging;
+using InfoShareApp.API.Application.Services.Logging;
 
 namespace InfoShareApp.API.Application
 {

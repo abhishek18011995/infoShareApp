@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace InfoShareApp.API.Common.Services.Logging
+namespace InfoShareApp.API.Application.Services.Logging
 {
     public class LoggingEvents
     {

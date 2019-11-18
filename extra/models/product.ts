@@ -1,12 +1,15 @@
-interface IProduct {
+import { Gender } from './enums';
+
+export interface IProduct {
     id: string;
     name: string;
     price: IPrice;
     imgPath: string;
-    type: string; 
+    type: string;
     inStock: boolean;
-    brandName: string; 
-    productInfo: IProductInfo;  
+    brandName: string;
+    gender: Gender;
+    productInfo: IProductInfo;
 }
 
 // interface IProductList {
@@ -15,7 +18,6 @@ interface IProduct {
 
 interface IProductInfo {
     productDetails: string;
-    gender: Gender;   
 }
 
 interface IPrice {
