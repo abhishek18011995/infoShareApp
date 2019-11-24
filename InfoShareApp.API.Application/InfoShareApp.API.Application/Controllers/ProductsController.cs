@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InfoShareApp.API.Common.Services;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,14 +10,21 @@ using Microsoft.AspNetCore.Mvc;
 namespace InfoShareApp.API.Application.Controllers
 {
     [Route("api/[controller]")]
-    public class ProductsController : Controller
+    public class ProductController : Controller
     {
+        private readonly IProductService productService;
+
+        public ProductController(IProductService productService)
+        {
+            this.productService = productService;
+        }
+
         // GET: api/<controller>
         [HttpGet]
-        public IActionResult GetProductList()
+        public async Task<IActionResult> GetProductList()
         {
-
-            return Ok(new string[] { "value1", "value2" });
+            var result = await productService.GetProducts();
+            return Ok(result);
         }
 
         // GET api/<controller>/5
