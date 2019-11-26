@@ -8,6 +8,5 @@ namespace InfoShareApp.API.Common.Services
     public interface IProductService
     {
         Task<List<Product>> GetProducts();
-        //String[] GetProducts();
     }
 }

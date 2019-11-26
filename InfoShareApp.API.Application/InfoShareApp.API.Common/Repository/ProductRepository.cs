@@ -20,7 +20,6 @@ namespace InfoShareApp.API.Common.Repository
         public async Task<List<Product>> GetProducts()
         {
             var collectionName = infoShareDatabaseSettings.ProductCollection;
-            //return new string[] { "value1", "value2", collectionName };
 
             return await mongoDbService.Get<Product>(infoShareDatabaseSettings.ProductCollection);
         }

@@ -17,9 +17,7 @@ namespace InfoShareApp.API.Common.Services
         }
 
         public async Task<List<Product>> GetProducts()
-        //public string[] GetProducts()
         {
-            //return new string[] { "value1", "value2" };
             return await productRepository.GetProducts();
         }
     }
