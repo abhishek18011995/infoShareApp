@@ -1,6 +1,31 @@
+connection string:
+mongodb+srv://abhishek18011995:qwerty!123@cluster0-sgwri.azure.mongodb.net/InfoShareDB?retryWrites=true&w=majority
+
 Hosting:
 https://www.aspify.com/en/webhosting/
 
 Doubts:
 How to feed data into the website?
 Where images will be stored?
+for all db call need to authenication 
+
+private string Execute(string queryString)
+{
+    // maxRequestTries is a private class member set to 3 by default, 
+    // optionally set via a constructor parameter (not shown)
+    var remainingTries = maxRequestTries;  
+
+    do 
+    {
+        --remainingTries;
+        try 
+        {
+            return ExecuteSingle(queryString);
+        }
+        catch (Exception) 
+        {
+
+        }
+    }
+    while (remainingTries > 0)
+}

@@ -1,4 +1,6 @@
-﻿using InfoShareApp.API.Common.Repository;
+﻿
+using AutoMapper;
+using InfoShareApp.API.Common.Repository;
 using InfoShareApp.API.Common.Services;
 using InfoShareApp.API.Common.Services.Storage;
 using InfoShareApp.API.Data.Models;
@@ -33,6 +35,8 @@ namespace InfoShareApp.API.Application
 
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddAutoMapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

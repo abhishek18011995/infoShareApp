@@ -8,6 +8,6 @@ namespace InfoShareApp.API.Common.Services.Storage
 {
     public interface IMongoDbService
     {
-        Task<IEnumerable<T>> Get<T>(string collectionName);
+        Task<List<T>> Get<T>(string collectionName);
     }
 }

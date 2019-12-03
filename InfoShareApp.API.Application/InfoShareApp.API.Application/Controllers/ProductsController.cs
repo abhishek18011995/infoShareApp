@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using InfoShareApp.API.Application.Models;
 using InfoShareApp.API.Common.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,8 +21,16 @@ namespace InfoShareApp.API.Application.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProductList()
         {
-            var result = await productService.GetProducts();
-            return Ok(result);
+            var productList = await productService.GetProducts();
+
+            if (productList != null)
+            {
+                return Ok(productList);
+            }
+            else
+            {
+                return StatusCode(500, "Some error occured while processing your request");
+            }
         }
 
         // GET api/<controller>/5
