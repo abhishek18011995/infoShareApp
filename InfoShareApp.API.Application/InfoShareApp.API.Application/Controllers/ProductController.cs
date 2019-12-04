@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using InfoShareApp.API.Application.Models;
-using InfoShareApp.API.Common.Services;
+using InfoShareApp.API.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

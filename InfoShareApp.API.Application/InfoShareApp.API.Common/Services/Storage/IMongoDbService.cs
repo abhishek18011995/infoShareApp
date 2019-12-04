@@ -9,5 +9,7 @@ namespace InfoShareApp.API.Common.Services.Storage
     public interface IMongoDbService
     {
         Task<List<T>> Get<T>(string collectionName);
+
+        Task<T> Create<T>(string collectionName, T item);
     }
 }

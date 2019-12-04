@@ -7,7 +7,15 @@ https://www.aspify.com/en/webhosting/
 Doubts:
 How to feed data into the website?
 Where images will be stored?
-for all db call need to authenication 
+
+ContactUS: 
+ - if collection doesnot exists then it should create new
+ - it should trigger notification to mobile or email after saving it to DB
+ - 
+
+
+
+------------------------------------------------------------------------------------
 
 private string Execute(string queryString)
 {

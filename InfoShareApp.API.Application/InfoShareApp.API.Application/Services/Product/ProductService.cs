@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using AutoMapper;
+using InfoShareApp.API.Application.Models;
 
-namespace InfoShareApp.API.Common.Services
+namespace InfoShareApp.API.Application.Services
 {
     public class ProductService : IProductService
     {
@@ -18,15 +19,20 @@ namespace InfoShareApp.API.Common.Services
         {
             this.productRepository = productRepository;
             this.logger = logger;
+            this.mapper = mapper;
         }
 
-        public async Task<List<Product>> GetProducts()
+        public async Task<List<ProductDto>> GetProducts()
         {
             try
             {
-                //List<ProductDto> productList
-                //var productList = new ProductDto() { };
-                return await productRepository.GetProducts();
+                var result = await productRepository.GetProducts();
+                if (result != null)
+                {
+                    List<ProductDto> productList = this.mapper.Map<List<Product>, List<ProductDto>>(result);
+                    return productList;
+                }
+                return null;
             }
             catch (Exception ex)
             {

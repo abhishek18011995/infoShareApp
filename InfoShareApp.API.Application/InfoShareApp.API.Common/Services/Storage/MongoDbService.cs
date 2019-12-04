@@ -22,7 +22,6 @@ namespace InfoShareApp.API.Common.Services.Storage
 
         public async Task<List<T>> Get<T>(string collectionName)
         {
-            //List<T> result;
             IAsyncCursor<T> result;
             IMongoCollection<T> mongoCollection = database.GetCollection<T>(collectionName);
             try
@@ -40,6 +39,21 @@ namespace InfoShareApp.API.Common.Services.Storage
                 this.logger.LogError(ex, ex.Message);
                 return default(List<T>);
             }
-        }        
+        }  
+        
+        public async Task<T> Create<T>(string collectionName, T item)
+        {
+            IMongoCollection<T> mongoCollection = database.GetCollection<T>(collectionName);
+            try
+            {
+                await mongoCollection.InsertOneAsync(item);
+                return item;
+            }
+            catch (MongoException ex)
+            {
+                this.logger.LogError(ex, ex.Message);
+                return default(T);
+            }
+        }
     }
 }

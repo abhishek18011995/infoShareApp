@@ -10,3 +10,10 @@ const contact: IContact = {
         postalCode: 560045
     }
 };
+
+// {
+//     "name": "Abhi",
+//    "email": "abhishek18011995@gmail.com",
+//     "subject": "query",
+//     "messages": "want some more details"
+// }

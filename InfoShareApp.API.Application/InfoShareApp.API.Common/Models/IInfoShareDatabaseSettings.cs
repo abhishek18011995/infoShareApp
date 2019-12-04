@@ -10,6 +10,7 @@ namespace InfoShareApp.API.Data.Models
         string ConnectionString { get; set; }
         string DatabaseName { get; set; }
         string ProductCollection { get; set; }
+        string ContactUsCollection { get; set; }
         //ICollections Collections { get; set; }
     }
 
