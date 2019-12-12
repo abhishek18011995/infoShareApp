@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InfoShareApp.API.Common.Services.Storage
 {
-    public class MongoDbService: IMongoDbService
+    public class MongoDbService : IMongoDbService
     {
         private readonly IMongoDatabase database;
         private readonly ILogger<MongoDbService> logger;
@@ -39,20 +39,21 @@ namespace InfoShareApp.API.Common.Services.Storage
                 this.logger.LogError(ex, ex.Message);
                 return default(List<T>);
             }
-        }  
-        
-        public async Task<T> Create<T>(string collectionName, T item)
+        }
+
+        public async Task<T> Create<T>(string collectionName, FilterDefinition<T> filterDefinition, UpdateDefinition<T> updateDefinition, FindOneAndUpdateOptions<T> options)
         {
             IMongoCollection<T> mongoCollection = database.GetCollection<T>(collectionName);
             try
             {
-                await mongoCollection.InsertOneAsync(item);
-                return item;
+                //await mongoCollection.InsertOneAsync(item);
+                var updatedResult = await mongoCollection.FindOneAndUpdateAsync(filterDefinition, updateDefinition, options);
+                return updatedResult;
             }
             catch (MongoException ex)
             {
                 this.logger.LogError(ex, ex.Message);
-                return default(T);
+                return default(T); ;
             }
         }
     }

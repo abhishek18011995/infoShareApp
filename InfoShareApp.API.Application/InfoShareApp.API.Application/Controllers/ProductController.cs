@@ -35,27 +35,20 @@ namespace InfoShareApp.API.Application.Controllers
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> GetProduct(string id)
         {
-            return "value";
+            //var product = id;
+            var product = await productService.GetProduct(id);
+
+            if (product != null)
+            {
+                return Ok(product);
+            }
+            else
+            {
+                return NotFound(product);
+            }
         }
 
-        // POST api/<controller>
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

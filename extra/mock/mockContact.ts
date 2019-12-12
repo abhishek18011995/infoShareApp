@@ -1,3 +1,5 @@
+import { IContact } from "../models/contact";
+
 const contact: IContact = {
     ownerName: 'Kumar Abhishek',
     address: {

@@ -4,6 +4,8 @@ using InfoShareApp.API.Common.Models;
 using InfoShareApp.API.Common.Repository;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace InfoShareApp.API.Application.Services
@@ -21,16 +23,34 @@ namespace InfoShareApp.API.Application.Services
             this.mapper = mapper;
         }
 
-        public async Task<ContactUsDto> RaiseNewQuery(ContactUsDto contactUs)
+        public async Task<ContactUsDto> RaiseNewQuery(ContactUsDto contactUsFormBody)
         {
-            var mappedResult = this.mapper.Map<ContactUs>(contactUs);
 
             try
             {
-                var result = await this.contactUsRepository.RaiseNewQuery(mappedResult);
-                if (result != null)
+                ContactUs contactUs = new ContactUs()
                 {
-                    return this.mapper.Map<ContactUs, ContactUsDto>(result);
+                    Email = contactUsFormBody.Email,
+                    Query = new List<ContactUsQuery>()
+                    {
+                        new ContactUsQuery()
+                        {
+                            Message = contactUsFormBody.Message,
+                            Subject = contactUsFormBody.Subject,
+                            SubmitDate = DateTime.Now
+                        }
+                    }
+                };
+                var dbResult = await this.contactUsRepository.RaiseNewQuery(contactUs);
+                if (dbResult != null)
+                {
+                    var result = new ContactUsDto()
+                    {
+                        Email = dbResult.Email,
+                        Message = dbResult.Query.First().Message,
+                        Subject = dbResult.Query.First().Subject
+                    };
+                    return result;
                 }
                 return null;
             }

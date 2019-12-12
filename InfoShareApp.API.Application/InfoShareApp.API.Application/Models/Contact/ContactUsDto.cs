@@ -4,9 +4,9 @@ namespace InfoShareApp.API.Application.Models
 {
     public class ContactUsDto
     {
-        [Required]
-        [MaxLength(50)]
-        public string Name { get; set; }
+        //[Required]
+        //[MaxLength(50)]
+        //public string Name { get; set; }
 
         [Required]
         [EmailAddress]

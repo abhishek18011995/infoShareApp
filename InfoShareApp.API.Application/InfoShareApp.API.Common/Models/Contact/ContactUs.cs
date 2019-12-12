@@ -1,14 +1,16 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
-using System.Text;
 
 namespace InfoShareApp.API.Common.Models
 {
     public class ContactUs
     {
-        public string Name { get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.String)]
         public string Email { get; set; }
-        public string Subject { get; set; }
-        public string Message { get; set; }
+
+        [BsonElement(elementName: "query")]
+        public List<ContactUsQuery> Query { get; set; }
     }
 }

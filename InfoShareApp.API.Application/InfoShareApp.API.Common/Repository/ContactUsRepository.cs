@@ -2,9 +2,8 @@
 using InfoShareApp.API.Common.Services.Storage;
 using InfoShareApp.API.Data.Models;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using MongoDB.Driver;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace InfoShareApp.API.Common.Repository
@@ -24,7 +23,11 @@ namespace InfoShareApp.API.Common.Repository
 
         public async Task<ContactUs> RaiseNewQuery(ContactUs contactUs)
         {
-            ContactUs result = await mongoDbService.Create<ContactUs>(this.infoShareDatabaseSettings.ContactUsCollection, contactUs);
+            var filter = Builders<ContactUs>.Filter.Eq(fil => fil.Email , contactUs.Email);
+            var update = Builders<ContactUs>.Update.Push<ContactUsQuery>(s => s.Query, contactUs.Query.FirstOrDefault());
+            var options = new FindOneAndUpdateOptions<ContactUs> { IsUpsert = true, ReturnDocument = ReturnDocument.After };
+
+            ContactUs result = await mongoDbService.Create<ContactUs>(this.infoShareDatabaseSettings.ContactUsCollection, filter, update, options);
 
             if (result != null)
             {

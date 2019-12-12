@@ -1,4 +1,5 @@
 ﻿using InfoShareApp.API.Common.Models;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,6 @@ namespace InfoShareApp.API.Common.Services.Storage
     {
         Task<List<T>> Get<T>(string collectionName);
 
-        Task<T> Create<T>(string collectionName, T item);
+        Task<T> Create<T>(string collectionName, FilterDefinition<T> filterDefinition, UpdateDefinition<T> updateDefinition, FindOneAndUpdateOptions<T> options);
     }
 }

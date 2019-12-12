@@ -22,6 +22,7 @@ namespace InfoShareApp.API.Application.Services
             this.mapper = mapper;
         }
 
+
         public async Task<List<ProductDto>> GetProducts()
         {
             try
@@ -39,6 +40,26 @@ namespace InfoShareApp.API.Application.Services
                 this.logger.LogError(ex, "Some error occured while getting the product list");
                 return null;
             }
+        }
+
+        public Task<List<ProductDto>> GetProduct(string id)
+        {
+
+            //try
+            //{
+            //    var result = await productRepository.GetProducts();
+            //    if (result != null)
+            //    {
+            //        List<ProductDto> productList = this.mapper.Map<List<Product>, List<ProductDto>>(result);
+            //        return productList;
+            //    }
+            //    return null;
+            //}
+            //catch (Exception ex)
+            //{
+            //    this.logger.LogError(ex, "Some error occured while getting the product list");
+            //    return null;
+            //}
         }
     }
 }
