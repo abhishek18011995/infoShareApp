@@ -11,6 +11,8 @@ namespace InfoShareApp.API.Common.Services.Storage
     {
         Task<List<T>> Get<T>(string collectionName);
 
+        Task<T> GetById<T>(string collectionName, FilterDefinition<T> filterDefinition);
+
         Task<T> Create<T>(string collectionName, FilterDefinition<T> filterDefinition, UpdateDefinition<T> updateDefinition, FindOneAndUpdateOptions<T> options);
     }
 }

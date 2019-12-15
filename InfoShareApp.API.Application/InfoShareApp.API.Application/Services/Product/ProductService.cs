@@ -37,29 +37,29 @@ namespace InfoShareApp.API.Application.Services
             }
             catch (Exception ex)
             {
-                this.logger.LogError(ex, "Some error occured while getting the product list");
+                this.logger.LogError(ex, ex.Message);
                 return null;
             }
         }
 
-        public Task<List<ProductDto>> GetProduct(string id)
+        public async Task<ProductDto> GetProductById(string productId)
         {
 
-            //try
-            //{
-            //    var result = await productRepository.GetProducts();
-            //    if (result != null)
-            //    {
-            //        List<ProductDto> productList = this.mapper.Map<List<Product>, List<ProductDto>>(result);
-            //        return productList;
-            //    }
-            //    return null;
-            //}
-            //catch (Exception ex)
-            //{
-            //    this.logger.LogError(ex, "Some error occured while getting the product list");
-            //    return null;
-            //}
+            try
+            {
+                var result = await productRepository.GetProductById(productId);
+                if (result != null)
+                {
+                    ProductDto product = this.mapper.Map<Product, ProductDto>(result);
+                    return product;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, ex.Message);
+                return null;
+            }
         }
     }
 }

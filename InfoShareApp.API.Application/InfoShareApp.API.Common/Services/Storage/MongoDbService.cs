@@ -41,6 +41,27 @@ namespace InfoShareApp.API.Common.Services.Storage
             }
         }
 
+        public async Task<T> GetById<T>(string collectionName, FilterDefinition<T> filterDefinition)
+        {
+            IAsyncCursor<T> result;
+            IMongoCollection<T> mongoCollection = database.GetCollection<T>(collectionName);
+            try
+            {
+                result = await mongoCollection.FindAsync(filterDefinition);
+                return result.FirstOrDefault();
+            }
+            catch (MongoException ex)
+            {
+                this.logger.LogError(ex, ex.Message);
+                return default(T);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, ex.Message);
+                return default(T);
+            }
+        }
+
         public async Task<T> Create<T>(string collectionName, FilterDefinition<T> filterDefinition, UpdateDefinition<T> updateDefinition, FindOneAndUpdateOptions<T> options)
         {
             IMongoCollection<T> mongoCollection = database.GetCollection<T>(collectionName);

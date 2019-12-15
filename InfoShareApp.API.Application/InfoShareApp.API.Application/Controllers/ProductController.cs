@@ -37,8 +37,7 @@ namespace InfoShareApp.API.Application.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(string id)
         {
-            //var product = id;
-            var product = await productService.GetProduct(id);
+            var product = await productService.GetProductById(id);
 
             if (product != null)
             {
@@ -46,7 +45,7 @@ namespace InfoShareApp.API.Application.Controllers
             }
             else
             {
-                return NotFound(product);
+                return NotFound($"Product with id '{id}' not found");
             }
         }
 
