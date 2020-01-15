@@ -9,7 +9,8 @@ export interface IProduct {
     inStock: boolean;
     brandName: string;
     gender: Gender;
-    productInfo: IProductInfo;
+    description: string;
+    color: string;
 }
 
 // interface IProductList {

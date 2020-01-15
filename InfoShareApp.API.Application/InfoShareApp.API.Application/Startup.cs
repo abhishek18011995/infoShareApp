@@ -1,7 +1,7 @@
 ﻿
 using AutoMapper;
+using InfoShareApp.API.Application.Services;
 using InfoShareApp.API.Common.Repository;
-using InfoShareApp.API.Common.Services;
 using InfoShareApp.API.Common.Services.Storage;
 using InfoShareApp.API.Data.Models;
 using Microsoft.AspNetCore.Builder;
@@ -35,6 +35,8 @@ namespace InfoShareApp.API.Application
 
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IContactUsService, ContactUsService>();
+            services.AddScoped<IContactUsRepository, ContactUsRepository>();
 
             services.AddAutoMapper();
         }

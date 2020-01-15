@@ -1,5 +1,9 @@
+TODO:
+raising query about the product from the products page itself for the same product
+use projection for getting the product list
+create index for product collection
+
 For future:
 Add Rosyln analyzers in nuget
 Rating for products
 multiple image support
-raising query about the product from the products page itself

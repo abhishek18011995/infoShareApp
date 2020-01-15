@@ -18,19 +18,10 @@ namespace InfoShareApp.API.Common.Models
 
         [BsonElement(elementName: "brandName")]
         public string BrandName { get; set; }
-
-        [BsonElement(elementName: "type")]
-        public string Type { get; set; }
-
+  
         [BsonElement(elementName: "inStock")]
         public bool InStock { get; set; }
-
-        [BsonElement(elementName: "gender")]
-        public string Gender { get; set; }
-
-        [BsonElement(elementName: "productInfo")]
-        public ProductInfo ProductInfo { get; set; }
-
+                
         [BsonElement(elementName: "price")]
         public Price Price { get; set; }
     }
