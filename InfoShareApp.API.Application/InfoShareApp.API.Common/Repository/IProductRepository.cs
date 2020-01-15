@@ -8,6 +8,8 @@ namespace InfoShareApp.API.Common.Repository
     {
         Task<List<Product>> GetProducts();
 
-        Task<Product> GetProductById(string productId);
+        Task<ProductInfo> GetProductById(string productId);
+
+        Task<List<Product>> SearchProduct(string text);
     }
 }

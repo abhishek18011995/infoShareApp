@@ -42,7 +42,7 @@ namespace InfoShareApp.API.Application.Services
             }
         }
 
-        public async Task<ProductDto> GetProductById(string productId)
+        public async Task<ProductInfoDto> GetProductById(string productId)
         {
 
             try
@@ -50,8 +50,27 @@ namespace InfoShareApp.API.Application.Services
                 var result = await productRepository.GetProductById(productId);
                 if (result != null)
                 {
-                    ProductDto product = this.mapper.Map<Product, ProductDto>(result);
+                    ProductInfoDto product = this.mapper.Map<ProductInfo, ProductInfoDto>(result);
                     return product;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, ex.Message);
+                return null;
+            }
+        }
+
+        public async Task<List<ProductDto>> SearchProduct(string text)
+        {
+            try
+            {
+                var result = await productRepository.SearchProduct(text);
+                if (result != null)
+                {
+                    List<ProductDto> productList = this.mapper.Map<List<Product>, List<ProductDto>>(result);
+                    return productList;
                 }
                 return null;
             }

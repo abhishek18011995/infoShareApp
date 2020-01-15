@@ -9,10 +9,12 @@ namespace InfoShareApp.API.Common.Services.Storage
 {
     public interface IMongoDbService
     {
-        Task<List<T>> Get<T>(string collectionName);
+        Task<List<T>> Get<T>(string collectionName, FilterDefinition<T> filterDefinition = null, FindOptions<T> options = null);
 
         Task<T> GetById<T>(string collectionName, FilterDefinition<T> filterDefinition);
 
         Task<T> Create<T>(string collectionName, FilterDefinition<T> filterDefinition, UpdateDefinition<T> updateDefinition, FindOneAndUpdateOptions<T> options);
+
+        //Task<List<T>> Search<T>(string collectionName, FilterDefinition<T> filterDefinition, FindOptions<T> options = null);
     }
 }

@@ -1,9 +1,9 @@
-interface IContact {
+export interface IContact {
     ownerName: string;
     address: IAddress;
 }
 
-interface IAddress {
+export interface IAddress {
     buildingName: string;
     street: string;
     area: string;
@@ -13,7 +13,7 @@ interface IAddress {
     postalCode: number;
 }
 
-interface IContactUs{
+export interface IContactUs{
     name: string;
     email: string;
     subject: string;

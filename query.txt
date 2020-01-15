@@ -13,7 +13,13 @@ ContactUS:
  - it should trigger notification to mobile or email after saving it to DB
  - 
 
-
+-----------------------------
+{
+"name":"text",
+"brandName":"text",
+"type":"text",
+"color":"text"
+}
 
 ------------------------------------------------------------------------------------
 

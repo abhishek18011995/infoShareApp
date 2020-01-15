@@ -39,16 +39,15 @@ namespace InfoShareApp.API.Common.Repository
 
         }
 
-        public async Task<Product> GetProductById(string productId)
+        public async Task<ProductInfo> GetProductById(string productId)
         {
             var collectionName = infoShareDatabaseSettings.ProductCollection;
             var canBeParsed = ObjectId.TryParse(productId, out ObjectId id);
-            //Product product = null;
 
             if (canBeParsed)
             {
-                var filter = Builders<Product>.Filter.Eq(fil => fil.Id, productId);
-              var  product = await mongoDbService.GetById<Product>(infoShareDatabaseSettings.ProductCollection, filter);
+                var filter = Builders<ProductInfo>.Filter.Eq(fil => fil.Id, productId);
+              var  product = await mongoDbService.GetById<ProductInfo>(infoShareDatabaseSettings.ProductCollection, filter);
 
                 if (product != null)
                 {
@@ -57,12 +56,32 @@ namespace InfoShareApp.API.Common.Repository
                 else
                 {
                     this.logger.LogError($"Product with id {productId} not found");
-                    return default(Product);
+                    return default(ProductInfo);
                 }
             } else
             {
                 this.logger.LogError("product id is invalid/not found");
-                return default(Product);
+                return default(ProductInfo);
+            }
+
+        }
+
+        public async Task<List<Product>> SearchProduct(string searchProduct)
+        {
+            var collectionName = infoShareDatabaseSettings.ProductCollection;
+            TextSearchOptions options = new TextSearchOptions() { CaseSensitive = false, DiacriticSensitive = true, Language = "english" };
+            FilterDefinition<Product> filterDefinition = Builders<Product>.Filter.Text(searchProduct, options);
+
+            var productList = await mongoDbService.Get<Product>(infoShareDatabaseSettings.ProductCollection, filterDefinition);
+
+            if (productList != null)
+            {
+                return productList;
+            }
+            else
+            {
+                this.logger.LogError("Some error during the product search");
+                return default(List<Product>);
             }
 
         }

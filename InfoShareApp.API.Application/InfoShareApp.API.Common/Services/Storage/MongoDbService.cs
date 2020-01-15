@@ -20,20 +20,22 @@ namespace InfoShareApp.API.Common.Services.Storage
             this.logger = logger;
         }
 
-        public async Task<List<T>> Get<T>(string collectionName)
+        public async Task<List<T>> Get<T>(string collectionName, FilterDefinition<T> filterDefinition = null, FindOptions<T> options = null)
         {
             IAsyncCursor<T> result;
             IMongoCollection<T> mongoCollection = database.GetCollection<T>(collectionName);
+            //mongoCollection.Indexes.CreateOne(Builders<T>.IndexKeys.Text(x => x.subject));
+            //var indexes = mongoCollection.Indexes.ListAsync().Result;
+
+            if (filterDefinition == null)
+            {
+                filterDefinition = FilterDefinition<T>.Empty;
+            }
             try
             {
-                result = await mongoCollection.FindAsync(collection => true);
+                result = await mongoCollection.FindAsync(filterDefinition, options);
                 return result.ToList();
             }
-            //catch (MongoWaitQueueFullException ex)
-            //{
-            //    this.logger.LogError(ex, ex.Message);
-            //    await Task.Delay(1000);
-            //}
             catch (MongoException ex)
             {
                 this.logger.LogError(ex, ex.Message);
@@ -67,15 +69,31 @@ namespace InfoShareApp.API.Common.Services.Storage
             IMongoCollection<T> mongoCollection = database.GetCollection<T>(collectionName);
             try
             {
-                //await mongoCollection.InsertOneAsync(item);
                 var updatedResult = await mongoCollection.FindOneAndUpdateAsync(filterDefinition, updateDefinition, options);
                 return updatedResult;
             }
             catch (MongoException ex)
             {
                 this.logger.LogError(ex, ex.Message);
-                return default(T); ;
+                return default(T);
             }
         }
+
+        //public async Task<List<T>> Search<T>(string collectionName, FilterDefinition<T> filterDefinition, FindOptions<T> options = null)
+        //{
+        //    IAsyncCursor<T> result;
+        //    IMongoCollection<T> mongoCollection = database.GetCollection<T>(collectionName);
+
+        //    try
+        //    {
+        //        result = await mongoCollection.FindAsync(filterDefinition);
+        //        return result.ToList();
+        //    }
+        //    catch (MongoException ex)
+        //    {
+        //        this.logger.LogError(ex, ex.Message);
+        //        return default(List<T>);
+        //    }
+        //}
     }
 }

@@ -9,6 +9,8 @@ namespace InfoShareApp.API.Application.Services
     {
         Task<List<ProductDto>> GetProducts();
 
-        Task<ProductDto> GetProductById(string id);
+        Task<ProductInfoDto> GetProductById(string id);
+
+        Task<List<ProductDto>> SearchProduct(string text);
     }
 }

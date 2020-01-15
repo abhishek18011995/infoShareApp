@@ -13,9 +13,32 @@ const contact: IContact = {
     }
 };
 
-// {
-//     "name": "Abhi",
-//    "email": "abhishek18011995@gmail.com",
-//     "subject": "query",
-//     "messages": "want some more details"
-// }
+const mockQuery = [{
+    "name": "Abhi",
+    "email": "abhishek18011995@gmail.com",
+    "subject": "query",
+    "messages": "want some more details"
+},
+{
+    "name": "Abhi",
+    "email": "abhishek18011995@gmail.com",
+    "subject": "query",
+    "messages": "want some more details"
+}];
+
+const mockWorkspace = [{
+    workspace: "1111",
+    reports: [{
+        id: "1122",
+        name: "WFM Outcomes Analytics1",
+        category: "Color"
+    }]
+},
+{
+    workspace: "2222",
+    reports: [{
+        id: "2233",
+        name: "WFM Outcomes Analytics2",
+        category: "Sales"
+    }]
+}];
