@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfoShareApp.API.Application", "InfoShareApp.API.Application\InfoShareApp.API.Application.csproj", "{93B485B0-78ED-41F2-8DB5-5BD538274BA6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfoShareApp.API.Common", "InfoShareApp.API.Common\InfoShareApp.API.Common.csproj", "{BDD53CC1-3AE6-4C78-9D5C-906D7644399B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93B485B0-78ED-41F2-8DB5-5BD538274BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93B485B0-78ED-41F2-8DB5-5BD538274BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93B485B0-78ED-41F2-8DB5-5BD538274BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93B485B0-78ED-41F2-8DB5-5BD538274BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDD53CC1-3AE6-4C78-9D5C-906D7644399B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDD53CC1-3AE6-4C78-9D5C-906D7644399B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDD53CC1-3AE6-4C78-9D5C-906D7644399B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDD53CC1-3AE6-4C78-9D5C-906D7644399B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A281FB1C-22B7-44EA-82B7-0B38C37D87BF}
+	EndGlobalSection
+EndGlobal

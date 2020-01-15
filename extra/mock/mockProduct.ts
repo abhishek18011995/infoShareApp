@@ -1,10 +1,10 @@
+import { Gender } from "../models/enums";
+import { IProduct } from "../models/product";
+
 const products: IProduct[] = [{
     id: '11',
     name: 'Chromozome Sando',
-    productInfo: {
-        productDetails: 'Chromozome Sando',
-        gender: Gender.MALE
-    },
+    description: 'Chromozome Sando',
     imgPath: 'string',
     type: 'innerwear',
     inStock: true,
@@ -12,37 +12,52 @@ const products: IProduct[] = [{
         mrp: 300,
         discountPrice: 250
     },
-    brandName: 'Chromozome'
+    brandName: 'Chromozome',
+    gender: Gender.MALE,
+    color: "white"
 },
 {
     id: '12',
     name: 'Killer jeans 12',
-    productInfo: {
-        productDetails: 'Killer jeans 12',
-        gender: Gender.MALE
-    },
+    description: 'Killer jeans 12',
     imgPath: 'string',
-    type: 'innerwear',
+    type: 'Jeans',
     price: {
         mrp: 2499,
         discountPrice: 1199
     },
     inStock: true,
-    brandName: 'Chromozome'
+    brandName: 'Killer',
+    gender: Gender.MALE,
+    color: 'black'
+},
+{
+    id: '12',
+    name: 'jeans 12',
+    description: 'Levis jeans 12',
+    imgPath: 'string',
+    type: 'Jeans',
+    price: {
+        mrp: 2499,
+        discountPrice: 1199
+    },
+    inStock: true,
+    brandName: 'Levis',
+    gender: Gender.MALE,
+    color: 'black'
 },
 {
     id: '113',
-    name: 'Killer jeans 12',
-    productInfo: {
-        productDetails: 'Killer jeans 12',
-        gender: Gender.MALE
-    },
+    name: 'blue Jacket',
+    description: 'Celio Blue Jacket',
     price: {
         mrp: 2499,
         discountPrice: 1199
     },
     imgPath: 'string',
-    type: 'innerwear',
+    type: 'Jacket',
     inStock: true,
-    brandName: 'Chromozome'
+    brandName: 'Celio',
+    gender: Gender.FEMALE,
+    color: 'blue'
 }]
