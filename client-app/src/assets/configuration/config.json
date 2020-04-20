@@ -1,0 +1,5 @@
+{
+    "baseUrl": "/",
+    "apiUrl": "https://localhost:44366",    
+    "loginUrl": "/api/account/login"
+}
