@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using InfoShareApp.API.Application.Models;
 using InfoShareApp.API.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -19,6 +20,7 @@ namespace InfoShareApp.API.Application.Controllers
         }
 
         // GET: api/<controller>
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetProductList()
         {
@@ -52,6 +54,7 @@ namespace InfoShareApp.API.Application.Controllers
         }
 
         // GET api/<controller>/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(string id)
         {

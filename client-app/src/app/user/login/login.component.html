@@ -1,0 +1,24 @@
+<div class="container-fluids">
+  <section class="outer">
+    <div class="login-page">
+      <div class="login-container shadow ">
+        <div class="logo-container">
+          <img src="./../../../assets/images/login-logo.jpg" alt="login logo" />
+        </div>
+        <h1 class="mb-5" (click)="getProduct()">Info Share APP</h1>
+        <form #loginForm="ngForm">
+          <div class="form-group">
+            <input type="email" class="form-control" [(ngModel)]="userName" name="userName" placeholder="Email Id"
+              aria-describedby="emailHelp" required email autofocus />
+            <div *ngIf="loginForm.invalid && loginForm.dirty" class="text-danger">
+              <p *ngIf="loginForm?.controls?.userName?.errors?.email">Username is not valid </p>
+              <p *ngIf="loginForm?.controls?.userName?.errors?.required">Username is required </p>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-sm w-100 mb-2" type="button" (click)="login(loginForm)">Sign In</button>
+          <button class="btn btn-secondary btn-sm w-100" type="button" (click)="cancel()">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
