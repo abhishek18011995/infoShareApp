@@ -44,12 +44,20 @@ namespace InfoShareApp.API.Application
             // Allow sign in via an OpenId Connect provider like OneLogin
             services.AddAuthentication(options =>
             {
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer();
+            .AddJwtBearer(options =>
+            {
+                options.Authority = "https://login.microsoftonline.com/147a2b71-5ce9-4933-94c4-2054328de565";
+                options.Audience = "c8b7fa4c-afe3-473f-9247-b4ebd27dcf6a";
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = "https://login.microsoftonline.com/147a2b71-5ce9-4933-94c4-2054328de565/v2.0"
+
+                };
+            });
 
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IProductRepository, ProductRepository>();
@@ -64,15 +72,15 @@ namespace InfoShareApp.API.Application
 
             services.AddAutoMapper();
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("_myAllowSpecificOrigins",
-                builder =>
-                {
-                    builder.WithOrigins("http://localhost:4200",
-                                        "http://localhost:44366").AllowAnyHeader().AllowAnyMethod();
-                });
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("_myAllowSpecificOrigins",
+            //    builder =>
+            //    {
+            //        builder.WithOrigins("http://localhost:4200",
+            //                            "http://localhost:44366").AllowAnyHeader().AllowAnyMethod();
+            //    });
+            //});
 
 
         }
@@ -101,7 +109,7 @@ namespace InfoShareApp.API.Application
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "./../../client-app";
+                //spa.Options.SourcePath = "./../../client-app";
 
                 if (env.IsDevelopment())
                 {

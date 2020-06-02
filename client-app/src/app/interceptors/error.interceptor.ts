@@ -3,11 +3,12 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import { ConfigService } from '../config.service';
 import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-    constructor(private configService: ConfigService) { }
+    constructor(private configService: ConfigService, private router: Router) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (req.url.indexOf('assets') > -1) {
@@ -15,8 +16,8 @@ export class ErrorInterceptor implements HttpInterceptor {
         }
 
         return next.handle(req).pipe(catchError(err => {
-            console.log(req);
-            console.log(err);
+            // console.log(req);
+            // console.log(err);
             if (err instanceof HttpErrorResponse) {
                 // if (err.status == 400
                 //     || err.status == 401
@@ -26,8 +27,9 @@ export class ErrorInterceptor implements HttpInterceptor {
                 //     return Observable.throw(err);
                 // }
 
-                const errorMessage = 'errors.' + (err.error.errorCode || 'unknown');
-                return throwError(new Error(errorMessage));
+                if (err.url.indexOf('/token') > -1) {
+                    this.router.navigate(['error']);
+                }
             }
             return throwError(err);
         }));

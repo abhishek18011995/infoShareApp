@@ -43,3 +43,58 @@ private string Execute(string queryString)
     }
     while (remainingTries > 0)
 }
+
+
+
+
+------------------------------------
+
+
+db.createCollection("colB", { capped : true, autoIndexId : true, size : 6142800, max : 4 } )
+
+{user:'user3'}, {user:'user4'}
+
+db.colA.find({"user":"user1"},{$or:[{"user":"user1"},{"user": "user5"}]}).pretty()
+
+
+[
+{
+   "post_text": "enjoy the mongodb articles on tutorialspoint",
+   "tags": [
+      "mongodb",
+      "tutorialspoint"
+   ]
+},
+{
+   "post_text": "enjoy the mongodb articles on tutorialspoint",
+   "tags": [
+      "mongodb",
+      "tutorialspoint"
+   ]
+}
+]
+
+db.product.ensureIndex({name:"text", type: "text", brandName: "text", gender: "text"})   
+db.product.find({$text:{$search:"jeans"}})
+db.product.find({$text:{$search:"jeans"}},   { score: { $meta: "textScore" } }).sort( { score: { $meta: "textScore" } } )
+
+correct sorting:  db.product.find({$text:{$search:"chromozome jeans"}},   { score: { $meta: "textScore" } }).pretty()
+collection.Indexes.CreateOne(Builders<searchFileByAuthor>.IndexKeys.Text(x=>x.subject));
+
+
+{
+    id: '121',
+    name: 'Killer jeans 12 blue',
+    productInfo: {
+        productDetails: 'Killer jeans 12'
+    },
+    imgPath: 'string',
+    type: 'Jeans',
+    price: {
+        mrp: 2499,
+        discountPrice: 1199
+    },
+    inStock: true,
+    brandName: 'Killer',
+    gender: 'MALE'
+}

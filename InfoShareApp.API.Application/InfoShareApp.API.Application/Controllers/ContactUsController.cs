@@ -1,5 +1,6 @@
 ﻿using InfoShareApp.API.Application.Models;
 using InfoShareApp.API.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
@@ -23,6 +24,7 @@ namespace InfoShareApp.API.Application.Controllers
         }
 
         // POST api/<controller>
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]ContactUsDto value)
         {

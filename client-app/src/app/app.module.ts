@@ -5,6 +5,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 
+import { OAuthModule } from 'angular-oauth2-oidc';
+
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
@@ -12,11 +14,17 @@ import { ErrorComponent } from './shared/error/error.component';
 import { AppInitializer } from './app.initializer';
 import { ApiInterceptor } from './interceptors/api.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ContactComponent } from './contact/contact.component';
+import { ShellComponent } from './shell/shell.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorComponent
+    ErrorComponent,
+    NavbarComponent,
+    ContactComponent,
+    ShellComponent
   ],
   imports: [
     BrowserModule,
@@ -24,10 +32,11 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     HttpClientModule,
     AppRoutingModule,
     UserModule,
-    ProductModule
+    ProductModule,
+    OAuthModule.forRoot()
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' },
-  { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+  // { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   {
     provide: APP_INITIALIZER,

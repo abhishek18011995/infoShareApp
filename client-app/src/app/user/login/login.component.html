@@ -15,7 +15,8 @@
               <p *ngIf="loginForm?.controls?.userName?.errors?.required">Username is required </p>
             </div>
           </div>
-          <button class="btn btn-primary btn-sm w-100" type="button" (click)="login(loginForm)">Sign In</button>
+          <button class="btn btn-primary btn-sm w-100 mb-2" type="button" (click)="login(loginForm)">Sign In</button>
+          <button class="btn btn-secondary btn-sm w-100" type="button" (click)="cancel()">Cancel</button>
         </form>
       </div>
     </div>

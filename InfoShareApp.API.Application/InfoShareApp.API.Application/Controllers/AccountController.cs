@@ -32,7 +32,7 @@ namespace InfoShareApp.API.Application.Controllers
             return Ok(new { baseUrl = this.HttpContext.User.Claims, apiUrl = "bbbb", loginUrl = "dsad" });
         }
 
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet("login")]
         public IActionResult GetLogin()
         {

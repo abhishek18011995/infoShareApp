@@ -20,7 +20,7 @@ namespace InfoShareApp.API.Application.Controllers
         }
 
         // GET: api/<controller>
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetProductList()
         {
@@ -54,6 +54,7 @@ namespace InfoShareApp.API.Application.Controllers
         }
 
         // GET api/<controller>/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(string id)
         {
