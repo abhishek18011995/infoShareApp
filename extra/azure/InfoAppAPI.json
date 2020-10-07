@@ -1,0 +1,85 @@
+{
+	"id": "30365cd1-dce1-497e-86a1-8e59d738c94f",
+	"acceptMappedClaims": null,
+	"accessTokenAcceptedVersion": 2,
+	"addIns": [],
+	"allowPublicClient": null,
+	"appId": "c8b7fa4c-afe3-473f-9247-b4ebd27dcf6a",
+	"appRoles": [],
+	"oauth2AllowUrlPathMatching": false,
+	"createdDateTime": "2020-05-19T11:52:33Z",
+	"groupMembershipClaims": null,
+	"identifierUris": [
+		"api://c8b7fa4c-afe3-473f-9247-b4ebd27dcf6a"
+	],
+	"informationalUrls": {
+		"termsOfService": null,
+		"support": null,
+		"privacy": null,
+		"marketing": null
+	},
+	"keyCredentials": [],
+	"knownClientApplications": [],
+	"logoUrl": null,
+	"logoutUrl": null,
+	"name": "InfoAppAPI",
+	"oauth2AllowIdTokenImplicitFlow": false,
+	"oauth2AllowImplicitFlow": false,
+	"oauth2Permissions": [
+		{
+			"adminConsentDescription": "Allows the app to access InfoAppAPI as the signed-in user for learning",
+			"adminConsentDisplayName": "Access InfoAppAPI",
+			"id": "49ddcaea-4212-4c2b-b4a0-019c3c6be2e7",
+			"isEnabled": true,
+			"lang": null,
+			"origin": "Application",
+			"type": "User",
+			"userConsentDescription": "Allows the app to access InfoAppAPI as the signed-in user for learning",
+			"userConsentDisplayName": "Access InfoAppAPI",
+			"value": "access_as_user"
+		}
+	],
+	"oauth2RequirePostResponse": false,
+	"optionalClaims": {
+		"idToken": [],
+		"accessToken": []
+	},
+	"orgRestrictions": [],
+	"parentalControlSettings": {
+		"countriesBlockedForMinors": [],
+		"legalAgeGroupRule": "Allow"
+	},
+	"passwordCredentials": [],
+	"preAuthorizedApplications": [
+		{
+			"appId": "bf0472af-3e91-4a31-993f-5aed0cab83d1",
+			"permissionIds": [
+				"49ddcaea-4212-4c2b-b4a0-019c3c6be2e7"
+			]
+		}
+	],
+	"publisherDomain": "apiazuredevge.onmicrosoft.com",
+	"replyUrlsWithType": [],
+	"requiredResourceAccess": [
+		{
+			"resourceAppId": "00000003-0000-0000-c000-000000000000",
+			"resourceAccess": [
+				{
+					"id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+					"type": "Scope"
+				}
+			]
+		}
+	],
+	"samlMetadataUrl": null,
+	"signInUrl": null,
+	"signInAudience": "AzureADandPersonalMicrosoftAccount",
+	"tags": [],
+	"tokenEncryptionKeyId": null,
+	"trustedCertificateSubjects": [],
+	"verifiedPublisher": {
+		"displayName": null,
+		"verifiedPublisherId": null,
+		"addedDateTime": null
+	}
+}

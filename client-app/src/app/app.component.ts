@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   }
 
   initIdpLogin() {
+    console.log(this.oauthService.getIdentityClaims());
     if (!this.authService.isAuthenticated()) {
       this.oauthService.configure(authConfig);
       this.oauthService.loadDiscoveryDocumentAndTryLogin();
@@ -29,11 +30,11 @@ export class AppComponent implements OnInit {
         }
 
         if (event.type === 'token_error') {
-          this.router.navigate(['error']);
+          // this.router.navigate(['error']);
         }
 
         if (event.type === 'token_validation_error') {
-          this.router.navigate(['error']);
+          // this.router.navigate(['error']);
         }
       });
     }

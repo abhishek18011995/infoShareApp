@@ -28,7 +28,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 // }
 
                 if (err.url.indexOf('/token') > -1) {
-                    this.router.navigate(['error']);
+                    // this.router.navigate(['error']);
                 }
             }
             return throwError(err);

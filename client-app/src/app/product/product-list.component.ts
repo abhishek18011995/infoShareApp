@@ -9,6 +9,7 @@ import { IProduct } from './product';
 })
 export class ProductListComponent implements OnInit {
 productList: IProduct[];
+productDetails: IProduct;
 
   constructor(private productService: ProductService) { }
 
@@ -20,6 +21,13 @@ productList: IProduct[];
     this.productService.getProducts().subscribe(resp => {
       console.log(resp);
       this.productList = resp;
+    });
+  }
+
+  getProduct(productId: string) {
+    this.productService.getProduct(productId).subscribe(resp => {
+      console.log(resp);
+      this.productDetails = resp;
     });
   }
 

@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace InfoShareApp.API.Application
@@ -49,13 +50,21 @@ namespace InfoShareApp.API.Application
             })
             .AddJwtBearer(options =>
             {
-                options.Authority = "https://login.microsoftonline.com/147a2b71-5ce9-4933-94c4-2054328de565";
-                options.Audience = "c8b7fa4c-afe3-473f-9247-b4ebd27dcf6a";
+                // Azure Ad IDP
+                //options.Authority = "https://login.microsoftonline.com/147a2b71-5ce9-4933-94c4-2054328de565";
+                //options.Audience = "c8b7fa4c-afe3-473f-9247-b4ebd27dcf6a";
+                //options.TokenValidationParameters = new TokenValidationParameters
+                //{
+                //    ValidIssuer = "https://login.microsoftonline.com/147a2b71-5ce9-4933-94c4-2054328de565/v2.0"
+                //};
 
+                // Auth0 IDP
+                options.Authority = "https://dev-y02mpd7s.auth0.com/";
+                options.Audience = "https://localhost:44366/api/";
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidIssuer = "https://login.microsoftonline.com/147a2b71-5ce9-4933-94c4-2054328de565/v2.0"
-
+                    ValidIssuer = "https://dev-y02mpd7s.auth0.com/",
+                    NameClaimType = ClaimTypes.NameIdentifier
                 };
             });
 

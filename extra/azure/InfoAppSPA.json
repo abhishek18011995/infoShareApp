@@ -1,0 +1,88 @@
+{
+	"id": "1e2b264a-ca16-49ea-b117-1b46827b158c",
+	"acceptMappedClaims": null,
+	"accessTokenAcceptedVersion": 2,
+	"addIns": [],
+	"allowPublicClient": null,
+	"appId": "bf0472af-3e91-4a31-993f-5aed0cab83d1",
+	"appRoles": [],
+	"oauth2AllowUrlPathMatching": false,
+	"createdDateTime": "2020-05-19T12:10:54Z",
+	"groupMembershipClaims": null,
+	"identifierUris": [],
+	"informationalUrls": {
+		"termsOfService": null,
+		"support": null,
+		"privacy": null,
+		"marketing": null
+	},
+	"keyCredentials": [],
+	"knownClientApplications": [],
+	"logoUrl": null,
+	"logoutUrl": null,
+	"name": "InfoAppSPA",
+	"oauth2AllowIdTokenImplicitFlow": false,
+	"oauth2AllowImplicitFlow": false,
+	"oauth2Permissions": [],
+	"oauth2RequirePostResponse": false,
+	"optionalClaims": {
+		"idToken": [],
+		"accessToken": []
+	},
+	"orgRestrictions": [],
+	"parentalControlSettings": {
+		"countriesBlockedForMinors": [],
+		"legalAgeGroupRule": "Allow"
+	},
+	"passwordCredentials": [],
+	"preAuthorizedApplications": [],
+	"publisherDomain": "apiazuredevge.onmicrosoft.com",
+	"replyUrlsWithType": [
+		{
+			"url": "https://localhost:4200/",
+			"type": "Spa"
+		},
+		{
+			"url": "https://localhost:4200/home",
+			"type": "Spa"
+		}
+	],
+	"requiredResourceAccess": [
+		{
+			"resourceAppId": "00000003-0000-0000-c000-000000000000",
+			"resourceAccess": [
+				{
+					"id": "14dad69e-099b-42c9-810b-d002981feec1",
+					"type": "Scope"
+				},
+				{
+					"id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+					"type": "Scope"
+				}
+			]
+		},
+		{
+			"resourceAppId": "c8b7fa4c-afe3-473f-9247-b4ebd27dcf6a",
+			"resourceAccess": [
+				{
+					"id": "49ddcaea-4212-4c2b-b4a0-019c3c6be2e7",
+					"type": "Scope"
+				}
+			]
+		}
+	],
+	"samlMetadataUrl": null,
+	"signInUrl": null,
+	"signInAudience": "AzureADandPersonalMicrosoftAccount",
+	"tags": [
+		"apiConsumer",
+		"singlePageApp"
+	],
+	"tokenEncryptionKeyId": null,
+	"trustedCertificateSubjects": [],
+	"verifiedPublisher": {
+		"displayName": null,
+		"verifiedPublisherId": null,
+		"addedDateTime": null
+	}
+}
